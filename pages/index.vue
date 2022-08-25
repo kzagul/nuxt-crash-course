@@ -77,9 +77,7 @@
 </template>
 
 <script>
-import Buttons from '../components/Buttons.vue';
 export default {
     name: "IndexPage",
-    components: { Buttons }
 }
 </script>
