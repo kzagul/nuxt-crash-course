@@ -4,6 +4,7 @@
             v-model="drawer"
             :mini-variant="!miniVariant"
             :clipped="clipped"
+            src="https://i.imgur.com/SRv4doc.gif"
             fixed
             app
             temporary
@@ -36,6 +37,10 @@
         <v-btn to="/" nuxt depressed plain>
           <v-toolbar-title v-text="title"/>
         </v-btn>
+
+        <nuxt-link to="/">
+          home
+        </nuxt-link>
 
         <v-spacer />
 
@@ -74,7 +79,13 @@ export default {
           icon: 'mdi-layers-triple',
           title: 'My stack',
           to: '/stack'
-        }
+        },
+        {
+          icon: 'mdi-account',
+          title: 'users',
+          to: '/users'
+        },
+        
       ],
       miniVariant: false,
       right: true,
