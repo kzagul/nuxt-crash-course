@@ -44,6 +44,10 @@
 
         <v-spacer />
 
+        <nuxt-link to="/login">
+          Вход
+        </nuxt-link>
+
         <v-btn icon>
             <v-icon>mdi-gmail</v-icon>
         </v-btn>
