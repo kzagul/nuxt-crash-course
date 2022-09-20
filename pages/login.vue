@@ -1,5 +1,5 @@
 <template>
-  <v-form ref="form" v-model="valid" lazy-validation>
+  <v-form @submit.prevent="onSubmit" ref="form" v-model="valid" lazy-validation>
     <v-text-field
       v-model="name"
       filled
@@ -37,7 +37,8 @@
         :disabled="!valid"
         color="success"
         class="mr-4"
-        @click="validate"
+        
+        type="submit"
       >
         Войти
       </v-btn>
@@ -69,6 +70,11 @@ export default {
     validate() {
       this.$refs.form.validate();
     },
+    onSubmit() {
+      this.$store.dispatch('login')
+      this.$router.push('/')
+      
+    }
   },
 };
 </script>

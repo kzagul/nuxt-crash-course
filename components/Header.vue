@@ -44,9 +44,16 @@
 
         <v-spacer />
 
-        <nuxt-link to="/login">
-          Вход
-        </nuxt-link>
+        <div v-if="!hasToken">
+          <nuxt-link to="/login">
+            Вход
+          </nuxt-link>
+        </div>
+        <div v-if="hasToken">
+          <a @click.prevent="logout" to="#">
+            Выйти
+          </a>
+        </div>
 
         <v-btn icon>
             <v-icon>mdi-gmail</v-icon>
@@ -95,6 +102,17 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Kzagul personal website',
+    }
+  },
+  computed: {
+    hasToken(){
+      return this.$store.getters.hasToken
+    }
+  },
+  methods: {
+    logout(){
+      this.$store.dispatch('logout')
+      this.$router.push('/login')
     }
   }
 }
